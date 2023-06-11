@@ -5,8 +5,38 @@
  {% block content %}
  <div class="col-md-12">
 
-     <form action="" class="post-form" method="post">
+     <form action="/update/{{mahasiswa.id}}" class="post-form" method="post">
+         {% csrf_token %}
+         <div class="container">
+             <div class="col-12">
+                 <h3>Update Data</h3>
+             </div>
 
+             <div class="mb-3">
+                 <label>Id Mahasiwas :</label>
+                 <input type="text" class="form-control" name="id" id="id_id" required maxlength="20"
+                     value="{{mahasiswa.id}}">
+             </div>
+
+             <div class="mb-3">
+                 <label>Name :</label>
+                 <input type="text" class="form-control" name="name" id="id_name" required maxlength="100"
+                     value="{{mahasiswa.name}}">
+             </div>
+
+             <div class="mb-3">
+                 <label>Email :</label>
+                 <input type="email" class="form-control" name="email" id="id_email" value="{{mahasiswa.email}}" />
+             </div>
+
+             <div class="mb-3">
+                 <label>Contact :</label>
+                 <input type="text" class="form-control" name="contact" id="id_contact" value="{{mahasiswa.contact}}" />
+             </div>
+
+             <div class="mb-3">
+                 <button type="submit" class="btn btn-primary">Update</button>
+             </div>
      </form>
 
  </div>

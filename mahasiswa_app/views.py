@@ -26,4 +26,19 @@ def add(request):
 
 def edit(request, id):
     mahasiswa = Mahasiswa.objects.get(id=id)
-    return render(request, 'edit.html')
+    return render(request, 'edit.html', {'mahasiswa': mahasiswa})
+
+
+def update(request, id):
+    mahasiswa = Mahasiswa.objects.get(id=id)
+    form = MahasiswaForm(request.POST, instance=mahasiswa)
+    if form.is_valid():
+        form.save()
+        return redirect('/')
+    return render(request, 'edit.html', {'mahasiswa': mahasiswa})
+
+
+def delete(request, id):
+    mahasiswa = Mahasiswa.objects.get(id=id)
+    mahasiswa.delete()
+    return redirect("/")
