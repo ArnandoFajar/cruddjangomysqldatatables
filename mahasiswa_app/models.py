@@ -10,6 +10,3 @@ class Mahasiswa(models.Model):
 
     class Meta:
         db_table = 'tblmahasiswa'
-
-
-print("Hello, World! I Am Arnando")
